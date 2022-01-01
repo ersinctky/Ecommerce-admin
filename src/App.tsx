@@ -1,7 +1,14 @@
-import React from "react";
+import React from 'react';
+import { BrowserRouter, Switch } from 'react-router-dom';
 
-function App() {
-  return <div className="App"></div>;
-}
+import { ROUTES } from './constants';
+import { renderRoute } from './utils';
 
-export default App;
+export const App: React.FC = () => {
+  return (
+    <BrowserRouter>
+      <Switch>{ROUTES.map((route) => renderRoute(route))}</Switch>
+    </BrowserRouter>
+  );
+};
+
